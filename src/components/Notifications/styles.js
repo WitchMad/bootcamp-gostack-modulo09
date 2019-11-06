@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { lighten } from 'polished';
 import PerfectScrollBar from 'react-perfect-scrollbar';
 
@@ -27,8 +27,23 @@ export const Badge = styled.button`
       }
     `}
 `;
+const toggle = keyframes`
+  from{
+    opacity:0;
+  }to{
+    opacity:1;
+  }
+`;
 export const NotificationList = styled.div`
-  display: ${props => (props.visible ? 'block' : 'none')};
+  ${props =>
+    props.visible
+      ? css`
+          display: block;
+          animation: ${toggle} 200ms linear;
+        `
+      : css`
+          display: none;
+        `}
   position: absolute;
   left: calc(50% - 130px);
   width: 260px;

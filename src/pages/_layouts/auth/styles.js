@@ -1,17 +1,32 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: linear-gradient(-90deg, #7159c1, #ab59c1);
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+const fade = keyframes`
+  from {
+    transform:scale(1.1);
+    opacity:0;
+  }to {
+    opacity:1;
+    transform:scale(1);
+  }
 `;
 export const Content = styled.div`
   width: 100%;
   max-width: 315px;
   text-align: center;
+
+  img {
+    animation-name: ${fade};
+    animation-duration: 500ms;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+  }
 
   form {
     display: flex;
@@ -19,6 +34,10 @@ export const Content = styled.div`
     margin-top: 30px;
 
     input {
+      animation-name: ${fade};
+      animation-duration: 500ms;
+      animation-delay: 300ms;
+      animation-fill-mode: backwards;
       background: rgba(0, 0, 0, 0.1);
       border: 0;
       border-radius: 4px;
@@ -38,6 +57,10 @@ export const Content = styled.div`
       font-weight: bold;
     }
     button {
+      animation-name: ${fade};
+      animation-duration: 500ms;
+      animation-delay: 400ms;
+      animation-fill-mode: backwards;
       margin: 5px 0 0;
       height: 44px;
       background: #3b9eff;
@@ -58,6 +81,10 @@ export const Content = styled.div`
       margin-top: 15px;
       font-size: 14px;
       opacity: 0.8;
+      animation-name: ${fade};
+      animation-duration: 500ms;
+      animation-delay: 400ms;
+      animation-fill-mode: backwards;
 
       &:hover {
         opacity: 1;
